@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.49.1
+    ports:
+      - "9090:9090"
+    volumes:
+      - "./prometheus.yaml:/etc/prometheus/prometheus.yaml"
+  # alertmanager
+  #   image: prom/alertmanager:v0.26.0
+  #   ports:
+  #     - '9093:9093'
+  #   volumes:
+  #     - './alertmanager.yaml:/etc/alertmanager/alertmanager.yaml'
+  grafana:
+    image: grafana/grafana:10.2.3
+    ports:
+      - "3000:3000"
